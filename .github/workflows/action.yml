@@ -1,0 +1,29 @@
+name: 'GitHub Algorithm Practicing Reminder Bot'
+
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v1
+      - name: 'Get LeetCode Problems'
+        run: echo "::set-env name=FILES::$(find ./ -name "*.py")"
+      - name: 'Get Date'
+        run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')"
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.qq.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 五毒神掌 の (${{env.REPORT_DATE}})
+          body: file://${{env.FILES}}
+          to: 3372703271@qq.com
+          from: GitHub Actions
+          content_type: text/html

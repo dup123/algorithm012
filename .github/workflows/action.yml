@@ -20,4 +20,4 @@ jobs:
         with:
           key: ${{ secrets.SCKEY }}
           text: 五毒神掌 の (${{env.REPORT_DATE}})
-          desp: file://${{ env.FILES }}
+          desp: ${{ env.FILES }}

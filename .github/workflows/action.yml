@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Get LeetCode Problems'
-        run: echo "::set-env name=FILES::$(find ./ -name "*.py")"
+        run: echo "::set-env name=FILES::$(find ./ -name "*py" | awk -F '/' '{print $NF}')"
       - name: 'Get Date'
         run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')"
       - name: Sending message

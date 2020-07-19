@@ -1,5 +1,90 @@
 学习笔记
 
+## 第五课
+### 哈希表、映射、集合
+
+#### 哈希表
+**哈希表** (Hash Table)，也叫 **散列表**，是根据关键码值(Key Value)而直接进行访问的数据结构。 它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。
+这个映射函数叫作 **散列函数** (Hash Function)，存放记录的数组叫作 **哈希表** (或散列表)。
+
+##### 工程实践
+
+- 电话号码簿
+- 用户信息表
+- 缓存(LRU Cache)
+- 键值对存储(Redis)
+
+#### 映射 (Map)
+#### 集合 (Set)
+
+
+## 第六课
+### 树、二叉树、二叉搜索树
+
+- 前序知识回顾： 链表等一维结构
+- 单链表 Linked List
+- 树 Tree
+- 二叉树 Binary Tree
+- 图 Graph
+
+**Linked List 是特殊化的 Tree**
+
+**Tree 是特殊化的 Graph**
+
+
+示例代码:
+
+```python
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left, self.right = None, None
+```
+
+### 二叉树遍历 Pre-order/In-order/Post-order
+
+1. 前序(Pre-order):根-左-右
+2. 中序(In-order):左-根-右
+3. 后序(Post-order):左-右-根
+
+
+示例代码:
+
+```python
+def preorder(self, root):
+    if root:
+        self.traverse_path.append(root.val)
+        self.preorder(root.left)
+        self.preorder(root.right)
+
+def inorder(self, root):
+    if root:
+        self.inorder(root.left)
+        self.traverse_path.append(root.val)
+        self.inorder(root.right)
+
+def postorder(self, root):
+    if root:
+        self.postorder(root.left)
+        self.postorder(root.right)
+        self.traverse_path.append(root.val)
+```
+
+### 二叉搜索树 Binary Search Tree
+
+二叉搜索树，也称二叉排序树、有序二叉树(Ordered Binary Tree)、
+排序二叉树(Sorted Binary Tree)，是指一棵空树或者具有下列性质的二叉树:
+
+1. 左子树上所有结点的值均小于它的根结点的值;
+2. 右子树上所有结点的值均大于它的根结点的值;
+3. 以此类推:左、右子树也分别为二叉查找树。 (这就是重复性!)
+
+中序遍历:升序排列
+
+**树的面试题解法一般都是递归**
+
+# 为什么?
+
 # 课程表
 
 ## 第二周
